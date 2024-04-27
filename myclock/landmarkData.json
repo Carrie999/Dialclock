@@ -1,0 +1,109 @@
+[
+    {
+        "themeBackgroundColor": "000000",
+        "themeBgSecondColor": "1c1c1d",
+        "themeTextColor":"ffffff",
+        "name": "Turtle Rock",
+        "id": 1001,
+
+    },
+    {
+         "themeBackgroundColor": "#e5eaf2",
+         "themeBgSecondColor" : "#f4f7f8",
+         "themeTextColor":"#333333",
+         "name": "Chilkoot Trail",
+         "id": 1006,
+     },
+    {
+        "themeBackgroundColor": "000000",
+        "themeBgSecondColor": "1c1c1d",
+        "themeTextColor":"#9f9f9f",
+        "name": "Chilkoot Trail",
+        "id": 1003,
+    },
+    {
+        "themeBackgroundColor": "000000",
+        "themeBgSecondColor": "121212",
+        "themeTextColor":"e33222",
+        "name": "Silver Salmon Creek",
+        "id": 1002,
+    },
+    {
+        "themeBackgroundColor": "091219",
+        "themeBgSecondColor": "0c1924",
+        "themeTextColor":"73e8ea",
+        "name": "Chilkoot Trail",
+        "id": 1005,
+    },
+    {
+        "themeBackgroundColor": "0d0f1a",
+        "themeBgSecondColor": "111426",
+        "themeTextColor":"6881ef",
+        "name": "Chilkoot Trail",
+        "id": 1004,
+    },
+    {
+        "themeBackgroundColor": "12160c",
+        "themeBgSecondColor": "161c0e",
+        "themeTextColor":"b2f550",
+        "name": "Chilkoot Trail",
+        "id": 1007,
+    },
+    {
+        "themeBackgroundColor": "130f0a",
+        "themeBgSecondColor": "1e170e",
+        "themeTextColor":"e8aa51",
+        "name": "Chilkoot Trail",
+        "id": 1008,
+    },
+    {
+        "themeBackgroundColor": "a4aa8f",
+        "themeBgSecondColor": "888c7b",
+        "themeTextColor":"322e2c",
+        "name": "Chilkoot Trail",
+        "id": 1009,
+    },
+    {
+        "themeBackgroundColor": "bcbcc0",
+        "themeBgSecondColor": "9f9fa2",
+        "themeTextColor":"3e3d40",
+        "name": "Chilkoot Trail",
+        "id": 1010,
+    },
+    {
+        "themeBackgroundColor": "0a0b0b",
+        "themeBgSecondColor": "142621",
+        "themeTextColor":"5bffca",
+        "name": "Chilkoot Trail",
+        "id": 1011,
+    },
+    {
+        "themeBackgroundColor": "000000",
+        "themeBgSecondColor": "231219",
+        "themeTextColor":"ff2b93",
+        "name": "Chilkoot Trail",
+        "id": 1014,
+    },
+    {
+        "themeBackgroundColor": "160d10",
+        "themeBgSecondColor": "251318",
+        "themeTextColor":"ff4171",
+        "name": "Chilkoot Trail",
+        "id": 1015,
+    },
+    {
+        "themeBackgroundColor": "120d14",
+        "themeBgSecondColor": "180e23",
+        "themeTextColor":"8728f5",
+        "name": "Chilkoot Trail",
+        "id": 1016,
+    },
+   
+    
+   
+    
+   
+  
+    
+
+]
