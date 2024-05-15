@@ -385,6 +385,10 @@ struct TwelveSwiftUIView: View {
                 if isButtonHidden { HStack{
                     
                     Button(action: {
+                        if !UserDefaults.standard.bool(forKey: "isPurchased"){
+                            return
+                        }
+                        
                         withAnimation {
                             isShowingCircles.toggle()
                             
@@ -397,9 +401,13 @@ struct TwelveSwiftUIView: View {
                             .foregroundColor(.white)
                             .padding()
                             .shadow(color: Color.black.opacity(0.3), radius: 3, x: 0, y: 2)
+                        
                     }
                     
                     Button(action: {
+                        if !UserDefaults.standard.bool(forKey: "isPurchased"){
+                            return
+                        }
                         withAnimation {
                             //                                    isShowDividingRule = isShowDividingRule == 3 ? 0 : isShowDividingRule + 1
                             //

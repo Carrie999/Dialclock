@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct ProSwiftUIView: View {
+    @StateObject var storeKit = StoreKitManager()
+    @State var isPurchased: Bool = false
     
-
     func hexToColor(hex: String, alpha: Double = 1.0) -> Color {
         var formattedHex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         if formattedHex.hasPrefix("#") {
@@ -56,6 +58,7 @@ struct ProSwiftUIView: View {
             
             HStack{
                 Spacer().frame(width: 50)
+                
                 VStack (alignment: .leading,spacing: 40){
                     Group {
                         HStack{
@@ -96,12 +99,14 @@ struct ProSwiftUIView: View {
             }.padding(.bottom,50)
             
             
-            
+           
+            ForEach(storeKit.storeProducts) {
+                                    product in HStack{
             VStack{
                 HStack(alignment: .lastTextBaseline){
                     Spacer().frame(width: 30)
-                    Text("¥").font(.system(size: 24)).foregroundColor(Color.white)
-                    Text("29.00").font(.system(size: 40)).foregroundColor(Color.white)
+//                    Text("¥").font(.system(size: 24)).foregroundColor(Color.white)
+                    Text(product.displayPrice).font(.system(size: 40)).foregroundColor(Color.white)
                     Text("  一次性永久解锁").font(.system(size: 16))
                     Spacer()
                 }
@@ -109,11 +114,28 @@ struct ProSwiftUIView: View {
             
             
                 Button(action: {
-                           // 在此处添加按钮点击后的逻辑
-    //                               self.action()
+//                        print(storeKit.storeProducts)
+                  
+                        if isPurchased {
+                            return
+                        }
+                        Task{
+                            try await storeKit.purchase(product)
+                       }
+                    
                        }) {
-                           Text("立即解锁").font(.system(size: 20))
-
+//                           CourseItem(storeKit: storeKit, product: product)
+                           
+                           if isPurchased {
+                               Text("已解锁").font(.system(size: 20))
+                               Text(Image(systemName: "checkmark"))
+                                   .bold()
+                                   .padding(10).foregroundColor(hexToColor(hex:"192d32"))
+                               
+                           } else {
+                               Text("立即解锁").font(.system(size: 20))
+                           }
+                           
                        }
                        .frame(maxWidth: .infinity, minHeight: 60)
                       
@@ -122,18 +144,49 @@ struct ProSwiftUIView: View {
                        .cornerRadius(5)
                        .padding(.horizontal,20)
                        .padding(.top,-10)
+                       .onChange(of: storeKit.purchasedCourses) { course, _ in
+                           Task {
+                               isPurchased = (try? await storeKit.isPurchased(product)) ?? false
+                               UserDefaults.standard.set(isPurchased, forKey: "isPurchased")
+                           }
+                       }
+            }
+                                    }
             }
                   
+            
+            
+            
+            
             HStack{
 //                Text("使用条款").font(.system(size: 14)).opacity(0.6)
 //                Spacer()
 //                Text("隐私协议").font(.system(size: 14)).opacity(0.6)
 //                Spacer()
-                Text("恢复购买").font(.system(size: 16)).opacity(0.6)
+                
+                Button(action: {
+                    Task {
+                        //This call displays a system prompt that asks users to authenticate with their App Store credentials.
+                        //Call this function only in response to an explicit user action, such as tapping a button.
+                        try? await AppStore.sync()
+                    }
+//                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("恢复购买").font(.system(size: 16)).opacity(0.6)
+                }.padding()
+             
+//                Button("Restore Purchases", action: {
+//                    
+//                })
                
             }
+            
             .padding(.horizontal,60)
             .padding(.top,20)
+            
+            
+            
+            
             
             
             
@@ -157,6 +210,32 @@ struct ProSwiftUIView: View {
     
     
 }
+
+struct CourseItem: View {
+    @ObservedObject var storeKit : StoreKitManager
+    @State var isPurchased: Bool = false
+    var product: Product
+    
+    var body: some View {
+        VStack {
+            if isPurchased {
+                Text(Image(systemName: "checkmark"))
+                    .bold()
+                    .padding(10)
+            } else {
+//                Text(product.displayPrice)
+//                    .padding(10)
+            }
+        }
+        .onChange(of: storeKit.purchasedCourses) { course, _ in
+            Task {
+                isPurchased = (try? await storeKit.isPurchased(product)) ?? false
+            }
+        }
+    }
+}
+
+
 
 #Preview {
     ProSwiftUIView()

@@ -19,7 +19,6 @@ struct ContentView: View {
 }
 
 
-
 struct OneView: View {
     @Environment(ModelData.self) var modelData
     @EnvironmentObject var themeManager: ThemeManager
@@ -28,14 +27,11 @@ struct OneView: View {
     @State private var isLandscape = false
 
     var body: some View {
-        
-        NavigationView {
-            
+        ZStack {
             if !isLandscape {
                 ZStack{
                     
                     VStack(spacing: 10.0) {
-                        
                         ClockView(isTextBased: true)
                         Spacer()
                     }
@@ -148,12 +144,12 @@ struct Clock7SSwiftUIView: View {
         AnyView(TwelveSwiftUIView()),
         AnyView(FourSwiftUIView()),
         AnyView(ThreeSwiftUIView()),
-        AnyView(FiveSwiftUIView()),
         AnyView(SevenSwiftUIView()),
         AnyView(NineSwiftUIView()),
         AnyView(EightSwiftUIView()),
         AnyView(TenSwiftUIView()),
         AnyView(ELEVENSwiftUIView()),
+        AnyView(FiveSwiftUIView()),
         
     ]
     
@@ -193,23 +189,10 @@ struct Clock7SSwiftUIView: View {
                     }
             )
         }
-    }
-    }
-}
+    } .navigationViewStyle(StackNavigationViewStyle())
 
-
-
-
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(ModelData()).environmentObject(
-            ThemeManager(themeTextColor: .white,
-                         themeBackgroundColor: .black,
-                         themeBgSecondColor:Color.customBlack))
-        
-        
-        //        ContentView().preferredColorScheme(.dark)
     }
 }
+
+
+

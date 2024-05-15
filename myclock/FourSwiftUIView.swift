@@ -327,6 +327,9 @@ struct FourSwiftUIView: View {
                 
                 if !isButtonHidden { HStack{
                     Button(action: {
+                        if !UserDefaults.standard.bool(forKey: "isPurchased"){
+                            return
+                        }
                         withAnimation {
                             isShowingCircles.toggle()
                             
@@ -342,6 +345,9 @@ struct FourSwiftUIView: View {
                     }
                     
                     Button(action: {
+                        if !UserDefaults.standard.bool(forKey: "isPurchased"){
+                            return
+                        }
                         withAnimation {
                             isShowDividingRule = isShowDividingRule == 3 ? 0 : isShowDividingRule + 1
                             

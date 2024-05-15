@@ -8,12 +8,36 @@
 import SwiftUI
 import SwiftData
 
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        print("app delegate")
+        return true
+    }
+//    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//        return .all
+//    }
+//
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("app did enter background")
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("app will terminate")
+    }
+    
+    static var orientationLock = UIInterfaceOrientationMask.portrait
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
+    }
+}
 
 
 @main
 struct myclockApp: App {
     @EnvironmentObject var themeManager: ThemeManager
     @State private var modelData = ModelData()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -57,8 +81,8 @@ struct myclockApp: App {
                 themeTextColor: textColor.isEmpty ? .white : hexToColor(hex:textColor),
                 themeBackgroundColor: backgroundColor.isEmpty ? .black :  hexToColor(hex:backgroundColor),
                 themeBgSecondColor: bgSecondColor.isEmpty ? Color.customBlack :  hexToColor(hex:bgSecondColor)
-                                                                                
             ))
+           .statusBar(hidden: true)
         }
         .modelContainer(sharedModelContainer)
     }
@@ -85,4 +109,4 @@ class ThemeManager: ObservableObject {
         self.themeBgSecondColor = themeBgSecondColor
     }
 }
-
+ 

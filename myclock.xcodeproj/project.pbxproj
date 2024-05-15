@@ -53,6 +53,13 @@
 		76B86A062BD5F067006E1196 /* FlipTextViewHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B86A002BD5F067006E1196 /* FlipTextViewHalf.swift */; };
 		76B86A072BD5F067006E1196 /* FlipImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B869FE2BD5F067006E1196 /* FlipImageView.swift */; };
 		76B86A0B2BD5F4E6006E1196 /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76B86A092BD5F4E6006E1196 /* Arial Rounded Bold.ttf */; };
+		76F2760E2BEFA09D00F06748 /* 表盘时钟.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 76F2760D2BEFA09D00F06748 /* 表盘时钟.storekit */; };
+		76F276102BEFA27F00F06748 /* product.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 76F2760F2BEFA27F00F06748 /* product.storekit */; };
+		76F276122BEFA7C100F06748 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76F276112BEFA7C100F06748 /* PropertyList.plist */; };
+		76F276142BEFAC4500F06748 /* storeKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F276132BEFAC4500F06748 /* storeKitManager.swift */; };
+		76F276182BEFBF8700F06748 /* purchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F276172BEFBF8700F06748 /* purchaseView.swift */; };
+		76F2761A2BF0A59300F06748 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F276192BF0A59300F06748 /* StoreKit.framework */; };
+		76F2761C2BF1FCFF00F06748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F2761B2BF1FCFF00F06748 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,13 @@
 		76B86A022BD5F067006E1196 /* MacOSViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSViewModifiers.swift; sourceTree = "<group>"; };
 		76B86A092BD5F4E6006E1196 /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 		76B86A0E2BD60223006E1196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76F2760D2BEFA09D00F06748 /* 表盘时钟.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "表盘时钟.storekit"; sourceTree = "<group>"; };
+		76F2760F2BEFA27F00F06748 /* product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = product.storekit; sourceTree = "<group>"; };
+		76F276112BEFA7C100F06748 /* PropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
+		76F276132BEFAC4500F06748 /* storeKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storeKitManager.swift; sourceTree = "<group>"; };
+		76F276172BEFBF8700F06748 /* purchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = purchaseView.swift; sourceTree = "<group>"; };
+		76F276192BF0A59300F06748 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		76F2761B2BF1FCFF00F06748 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F2761A2BF0A59300F06748 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +171,7 @@
 		768A6D722BD7FCAC00BCE15E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76F276192BF0A59300F06748 /* StoreKit.framework */,
 				768A6D752BD7FCAC00BCE15E /* SwiftUI.framework */,
 				768A6DDA2BD8044400BCE15E /* WidgetKit.framework */,
 			);
@@ -211,13 +227,19 @@
 				768A6D5E2BD6A91000BCE15E /* modelData.swift */,
 				76B869E02BD5EE49006E1196 /* ContentView.swift */,
 				768A6DF22BD90EE600BCE15E /* TwoSwiftUIView.swift */,
+				76F2760D2BEFA09D00F06748 /* 表盘时钟.storekit */,
+				76F2760F2BEFA27F00F06748 /* product.storekit */,
+				76F276112BEFA7C100F06748 /* PropertyList.plist */,
 				768A6E0F2BDB9C2F00BCE15E /* SettingSwiftUIView.swift */,
+				76F276132BEFAC4500F06748 /* storeKitManager.swift */,
 				768A6E302BDD216200BCE15E /* sendMailSwiftUIView.swift */,
 				768A6DF42BD91EAE00BCE15E /* ThreeSwiftUIView.swift */,
 				768A6E0B2BDB433800BCE15E /* ProSwiftUIView.swift */,
+				76F276172BEFBF8700F06748 /* purchaseView.swift */,
 				768A6DFC2BD9545600BCE15E /* SevenSwiftUIView.swift */,
 				768A6DFE2BD9614200BCE15E /* NineSwiftUIView.swift */,
 				768A6E022BD9F50000BCE15E /* TenSwiftUIView.swift */,
+				76F2761B2BF1FCFF00F06748 /* LaunchScreen.storyboard */,
 				768A6E062BDA178A00BCE15E /* ELEVENSwiftUIView.swift */,
 				768A6E002BD9F20400BCE15E /* EightSwiftUIView.swift */,
 				768A6DF62BD9223600BCE15E /* FourSwiftUIView.swift */,
@@ -340,11 +362,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				76B869E82BD5EE4A006E1196 /* Preview Assets.xcassets in Resources */,
+				76F276122BEFA7C100F06748 /* PropertyList.plist in Resources */,
 				768A6D582BD642EB00BCE15E /* DS-DIGI-1.ttf in Resources */,
 				76B869F22BD5EE90006E1196 /* FlipViews in Resources */,
 				76B869F52BD5EFA3006E1196 /* JDFlipNumberView.bundle in Resources */,
+				76F276102BEFA27F00F06748 /* product.storekit in Resources */,
+				76F2760E2BEFA09D00F06748 /* 表盘时钟.storekit in Resources */,
 				76B869E52BD5EE4A006E1196 /* Assets.xcassets in Resources */,
 				768A6D622BD6A98400BCE15E /* landmarkData.json in Resources */,
+				76F2761C2BF1FCFF00F06748 /* LaunchScreen.storyboard in Resources */,
 				76B86A0B2BD5F4E6006E1196 /* Arial Rounded Bold.ttf in Resources */,
 				76B869F32BD5EE90006E1196 /* AppViews in Resources */,
 			);
@@ -371,6 +397,7 @@
 				768A6DFD2BD9545600BCE15E /* SevenSwiftUIView.swift in Sources */,
 				76B869E12BD5EE49006E1196 /* ContentView.swift in Sources */,
 				76B86A062BD5F067006E1196 /* FlipTextViewHalf.swift in Sources */,
+				76F276182BEFBF8700F06748 /* purchaseView.swift in Sources */,
 				768A6D5F2BD6A91000BCE15E /* modelData.swift in Sources */,
 				768A6E0C2BDB433900BCE15E /* ProSwiftUIView.swift in Sources */,
 				768A6E2D2BDCFE8300BCE15E /* AnimateSwiftUIView.swift in Sources */,
@@ -383,6 +410,7 @@
 				768A6E102BDB9C2F00BCE15E /* SettingSwiftUIView.swift in Sources */,
 				76B869FB2BD5F05C006E1196 /* ClockModel.swift in Sources */,
 				768A6D5A2BD6770A00BCE15E /* ThemeSwiftUIView.swift in Sources */,
+				76F276142BEFAC4500F06748 /* storeKitManager.swift in Sources */,
 				76B86A042BD5F067006E1196 /* FlipTextView.swift in Sources */,
 				768A6E012BD9F20400BCE15E /* EightSwiftUIView.swift in Sources */,
 				76B86A052BD5F067006E1196 /* FlipImageViewHalf.swift in Sources */,
@@ -419,17 +447,19 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F7TRH9293R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = clockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = clockWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = study.com.test.myclock.clockWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock.clockWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -445,17 +475,19 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F7TRH9293R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = clockWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = clockWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = study.com.test.myclock.clockWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock.clockWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -516,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -573,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -595,23 +627,26 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myclock/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F7TRH9293R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myclock/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "表盘时钟";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = study.com.test.myclock;
+				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,23 +666,26 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"myclock/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F7TRH9293R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myclock/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "表盘时钟";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = study.com.test.myclock;
+				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

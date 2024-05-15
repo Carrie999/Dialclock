@@ -183,8 +183,9 @@ struct TenSwiftUIView: View {
             .background(.white)
             
             VStack{
-                BuyButtonSwiftUIView()
+                    BuyButtonSwiftUIView()
             }
+              
         }
     }
 }

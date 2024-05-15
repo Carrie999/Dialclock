@@ -8,10 +8,34 @@
 import SwiftUI
 import MessageUI
 import AppIntents
+import StoreKit
 
 struct SettingSwiftUIView: View {
     @State private var isShowingMailView = false
     @State private var isShowingActivityView = false
+    @Environment(\.requestReview) var requestReview
+    
+    
+    func hexToColor(hex: String, alpha: Double = 1.0) -> Color {
+        var formattedHex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        if formattedHex.hasPrefix("#") {
+            formattedHex.remove(at: formattedHex.startIndex)
+        }
+        
+        let scanner = Scanner(string: formattedHex)
+        var color: UInt64 = 0
+        
+        if scanner.scanHexInt64(&color) {
+            let red = Double((color & 0xFF0000) >> 16) / 255.0
+            let green = Double((color & 0x00FF00) >> 8) / 255.0
+            let blue = Double(color & 0x0000FF) / 255.0
+            return Color(red: red, green: green, blue: blue, opacity: alpha)
+        } else {
+            // 返回默认颜色，当转换失败时
+            return Color.black
+        }
+    }
+    
     let textToShare = "Hello, friends! Check out this cool app!"
 //    private func mailView() -> some View {
 //          MFMailComposeViewController.canSendMail() ?
@@ -22,26 +46,45 @@ struct SettingSwiftUIView: View {
 
     func getAppShareText() -> String {
           // Customize the share text with your app's description
-          return "Check out this amazing app! It's the best app ever!"
+//          return "Check out this amazing app! It's the best app ever about clock!"
+        return "推荐一款实用App，表盘时钟自定义额样式"
       }
     func getAppStoreLink() -> URL {
             // Replace "your_app_id" with your actual App Store ID
-            let appStoreID = "your_app_id"
-            let appStoreURL = "https://apps.apple.com/app/id\(appStoreID)"
+            let appStoreID = "6502540017"
+            let appStoreURL = "https://apps.apple.com/app/id\(appStoreID)?action=write-review"
             return URL(string: appStoreURL)!
         }
     var body: some View {
-        NavigationView {
+//        NavigationView {
             List {
                 
-            
-                 
-            
                 Section(header: Text("升级版")) {
-                    NavigationLink(destination: ProSwiftUIView()) {
-                        Text("购买升级版")
+                  
+                    
+                    if UserDefaults.standard.bool(forKey: "isPurchased") {
+                        Text("您已是升级版")
+                            .padding()
+                            .foregroundColor(hexToColor(hex: "#6d4f31"))
+                            .background(
+                                            LinearGradient(gradient: Gradient(colors: [hexToColor(hex: "#f9e3c6"), hexToColor(hex: "#d1b18b")]), startPoint: .leading, endPoint: .trailing)
+                                        )
+                            .background(hexToColor(hex: "#d9bb98"))
+                            .cornerRadius(12)
+                    } else {
+                        NavigationLink(destination: ProSwiftUIView()) {
+                            Text("购买升级版")
+                        }
                     }
-                    Text("恢复购买")
+                    
+                    Button(action: {
+                        Task {
+                            try? await AppStore.sync()
+                        }
+                    }) {
+                        Text("恢复购买")
+                    }
+                  
 //                    
 //                    Button("Send Email") {
 //                        self.isShowingMailView.toggle()
@@ -79,13 +122,15 @@ struct SettingSwiftUIView: View {
                     
               
                     Button(action: {
-                        if let url = URL(string: "itms-apps://itunes.apple.com/app/id?action=write-review"),
-
-                           UIApplication.shared.canOpenURL(url){
-
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-
-                        }
+                        // itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=[APP-ID-HERE]&pageNumber=0&sortOrdering=2&mt=8
+//                        if let url = URL(string: "itms-apps://itunes.apple.com/app/id?action=write-review"),
+//
+//                           UIApplication.shared.canOpenURL(url){
+//
+//                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//
+//                        }
+                        requestReview()
 
 
                     }) {
@@ -95,9 +140,9 @@ struct SettingSwiftUIView: View {
            
 //                    Text("建议吐槽")
                     sendMailSwiftUIView()
-                    NavigationLink(destination: AboutUsView()) {
-                        Text("关于我们")
-                    }
+//                    NavigationLink(destination: AboutUsView()) {
+//                        Text("关于我们")
+//                    }
                     
                     Text("当前版本(v1.0.7) ")
                 }
@@ -138,7 +183,7 @@ struct SettingSwiftUIView: View {
             }
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("设置")
-        }
+//        }
     }
 }
 
@@ -198,8 +243,11 @@ struct ChargeView: View {
 
 struct AboutUsView: View {
     var body: some View {
-        Text("这是关于我们页面")
-            .navigationTitle("关于我们")
+        
+        VStack{
+        
+            Text("")
+        }.navigationTitle("关于我们")
     }
 }
 
@@ -210,6 +258,7 @@ struct AboutUsView: View {
 
 
 struct AppIconView: View {
+    @Environment(\.colorScheme) var colorScheme
     // 存储所有可选的图片名称
     let imageNames:[Int] = [1, 2, 3, 4, 5, 6, 7, 8] // 添加你的图片名称
     let imageNames1 = ["AppIcon1", "AppIcon2", "AppIcon3", "AppIcon4",
@@ -227,6 +276,7 @@ struct AppIconView: View {
     @State private var selectedImage: Int?
     // 绑定用于存储当前选定的图片名称的集合
     @State private var selectedImages: Set<String> = []
+  
     @AppStorage("setting_active_app_icon") var setting_active_app_icon = ""
     var body: some View {
         VStack {
@@ -247,7 +297,8 @@ struct AppIconView: View {
                                 .resizable()
                                 .frame(width: 50, height: 50) // 设置图片大小
                                 .cornerRadius(10)
-                            Text(imageNames3[imageName - 1 ]).foregroundColor(.black)
+                            Text(imageNames3[imageName - 1 ])
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
                             Spacer()
                             if imageName == self.selectedImage {Image(systemName: "checkmark")
                                     .resizable()

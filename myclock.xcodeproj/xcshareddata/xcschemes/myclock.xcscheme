@@ -49,6 +49,9 @@
             ReferencedContainer = "container:myclock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../myclock/&#x8868;&#x76d8;&#x65f6;&#x949f;.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

@@ -10,13 +10,14 @@ import SwiftUI
 
 
 struct AnalogClockView: View {
-    
+   
     typealias AnalogClockCallback = (Date) -> Void
     
     @Binding var foregroundColor: Color
     @Binding var foreSecondColor: Color
     @Binding var foreThirdColor: Color
     @State private var currentTime: Date = Date.now
+
     
     var onUpdateTime: AnalogClockCallback? = nil
     
@@ -175,7 +176,6 @@ struct AnalogClockView: View {
 
 
 struct TwoSwiftUIView: View {
-    
     @State private var themeColor: Color = .black
     @State private var currentTime: Date = Date.now
 
@@ -190,18 +190,26 @@ struct TwoSwiftUIView: View {
     var body: some View {
         ZStack{
             VStack {
+               
                 AnalogClockView(foregroundColor: $themeColor,foreSecondColor: $foreSecondColor,foreThirdColor:$foreThirdColor) { date in
                     currentTime = date
                    
                 }
                 .padding(30)
+                
 
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(themeColor.opacity(1))
                 
             VStack{
-              
+//                
+//                if UserDefaults.standard.bool(forKey: "isPurchased") {
+//                    Text("11111").foregroundColor(.white)
+//                } else {
+//                    Text("22222").foregroundColor(.white)
+//                }
                 HStack {
                     Spacer()
                     NavigationLink(destination: SettingSwiftUIView()) {
@@ -234,3 +242,4 @@ struct TwoSwiftUIView: View {
 #Preview {
     TwoSwiftUIView()
 }
+

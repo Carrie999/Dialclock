@@ -53,7 +53,7 @@ struct AnalogClockView5: View {
             
             let hour = Double(components.hour ?? 0)
             let minute = Double(components.minute ?? 0)
-//            let second = Double(components.second ?? 0)
+            let second = Double(components.second ?? 0)
             
             // Using this circle for creating the border
             Circle()
@@ -168,26 +168,26 @@ struct AnalogClockView5: View {
             .foregroundColor(foregroundColor)
             
             
-            // Drawing Seconds hand
-//            Path { path in
-//                path.move(to: center)
-//                
-//                let height = innerRadius - 85
-//                
-//                let radian = Angle(degrees: second * 6 - 90).radians
-//                let x = centerX + height * cos(radian)
-//                let y = centerY + height * sin(radian)
-//                
-//                path.addLine(to: CGPoint(x: x, y: y))
-//            }
-//            .stroke(style: StrokeStyle(lineWidth: 16, lineCap: .round))
-//            .foregroundColor(foreSecondColor)
-//         
+//             Drawing Seconds hand
+            Path { path in
+                path.move(to: center)
+                
+                let height = innerRadius - 85
+                
+                let radian = Angle(degrees: second * 6 - 90).radians
+                let x = centerX + height * cos(radian)
+                let y = centerY + height * sin(radian)
+                
+                path.addLine(to: CGPoint(x: x, y: y))
+            }
+            .stroke(style: StrokeStyle(lineWidth: 16, lineCap: .round))
+            .foregroundColor(foreSecondColor)
+         
             
-//            Circle()
-//                .frame(width: 24, height: 24)
-//                .foregroundColor(foreSecondColor)
-//                .position(center)
+            Circle()
+                .frame(width: 24, height: 24)
+                .foregroundColor(foreSecondColor)
+                .position(center)
         }
         .aspectRatio(1, contentMode: .fit)
         .onReceive(timer) { time in
@@ -222,16 +222,8 @@ struct FiveSwiftUIView: View {
                     themeColor = colors.randomElement() ?? themeColor
                 }
             }
-//            .shadow(color: Color.black.opacity(0.15),radius: 32)
             .padding(30)
-//            Text(currentTime, style: .time)
-//                .font(.system(size: 52))
-//                .bold().foregroundColor(themeColor)
-//            Toggle(isOn: $changeRandomColor) {
-//                Text("Change Color")
-//            }
-//            .padding(.horizontal, 30)
-//            Spacer(minLength: 30)
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.clear)
