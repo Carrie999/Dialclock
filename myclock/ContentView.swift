@@ -8,6 +8,19 @@
 import SwiftUI
 
 
+
+struct ClockView1_Previews: PreviewProvider {
+  
+    static var previews: some View {
+        let modelData = ModelData()
+            
+        ContentView()
+            .environment(modelData)
+
+        .environmentObject(ThemeManager(themeTextColor: .white, themeBackgroundColor: .black,themeBgSecondColor: Color.black))
+    }
+}
+
 struct ContentView: View {
     @Environment(ModelData.self) var modelData
     @EnvironmentObject var themeManager: ThemeManager
@@ -28,7 +41,7 @@ struct OneView: View {
 
     var body: some View {
         ZStack {
-            if !isLandscape {
+//            if !isLandscape {
                 ZStack{
                     
                     VStack(spacing: 10.0) {
@@ -48,7 +61,7 @@ struct OneView: View {
                     VStack {
                         Spacer()
                         if !isButtonHidden {
-                            Spacer().frame(height:20)
+                            Spacer()
                             Button(action: {
                                 
                             }) {
@@ -67,63 +80,63 @@ struct OneView: View {
                             
                             
                         }
-                        Spacer().frame(height:20)
+//                        Spacer().frame(height:0)
                     }
                 }
-            } else {
-                ZStack {
-                HStack(spacing: 10.0) {
-                    
-                    ClockView(isTextBased: true)
-                    Spacer()
-                }
+//            } else {
+//                ZStack {
+//                HStack(spacing: 10.0) {
+//                    
+//                    ClockView(isTextBased: true)
+//                    Spacer()
+//                }
+//                
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .background(themeManager.themeBackgroundColor)
+//                .gesture(
+//                    TapGesture()
+//                        .onEnded { _ in
+//                            self.isButtonHidden.toggle()
+//                        }
+//                )
+//                
                 
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(themeManager.themeBackgroundColor)
-                .gesture(
-                    TapGesture()
-                        .onEnded { _ in
-                            self.isButtonHidden.toggle()
-                        }
-                )
                 
+//                HStack {
+//                    VStack{
+//                        Spacer()
+//                        if !isButtonHidden {
+//                            Button(action: {
+//                                
+//                                
+//                            }) {
+//                                
+//                                NavigationLink(destination: ThemeSwiftUIView()) {
+//                                    Image(systemName: "paintpalette.fill")
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width:30, height: 30)
+//                                        .foregroundColor(.white)
+//                                    
+//                                        .padding()
+//                                }
+//                                
+//                            }.padding()
+//                            
+//                            
+//                        }
+//                        
+//                    }
+//                    
+//                }
                 
-                
-                HStack {
-                    VStack{
-                        Spacer()
-                        if !isButtonHidden {
-                            Button(action: {
-                                
-                                
-                            }) {
-                                
-                                NavigationLink(destination: ThemeSwiftUIView()) {
-                                    Image(systemName: "paintpalette.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width:30, height: 30)
-                                        .foregroundColor(.white)
-                                    
-                                        .padding()
-                                }
-                                
-                            }.padding()
-                            
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-                }
-            }
+//                }
+//            }
             
             
             
         }.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-            isLandscape = UIDevice.current.orientation.isLandscape
+//            isLandscape = UIDevice.current.orientation.isLandscape
             
         }
         

@@ -17,6 +17,7 @@ struct AnalogClockView6: View {
     @Binding var foreThirdColor: Color
     @Binding var isShowDividingRule : Int
     @State private var currentTime: Date = Date.now
+    @State private var isLandscape = false
     
     var onUpdateTime: AnalogClockCallback? = nil
     
@@ -197,6 +198,7 @@ struct AnalogClockView6: View {
             currentTime = time
             onUpdateTime?(time)
         }
+        
     }
 }
 
@@ -216,6 +218,7 @@ struct SixSwiftUIView: View {
     private var colors2: [String]
     @State private var isButtonHidden = true
     @State private var isShowingCircles = false
+    @State private var isLandscape = false
     
     init() {
 //        colors = [.red, .blue, .green, .yellow, .orange, .purple, .pink]
@@ -261,6 +264,7 @@ struct SixSwiftUIView: View {
                     currentTime = date
 
                 }
+                .rotationEffect(.degrees(!isLandscape ? 0 : 90))
                 .padding(30)
 
 
@@ -341,6 +345,8 @@ struct SixSwiftUIView: View {
                 }
                 
                 }
+            }.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//                isLandscape = UIDevice.current.orientation.isLandscape
             }
         
         }

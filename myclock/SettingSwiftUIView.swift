@@ -13,7 +13,7 @@ import StoreKit
 struct SettingSwiftUIView: View {
     @State private var isShowingMailView = false
     @State private var isShowingActivityView = false
-    @Environment(\.requestReview) var requestReview
+//    @Environment(\.requestReview) var requestReview
     
     
     func hexToColor(hex: String, alpha: Double = 1.0) -> Color {
@@ -122,15 +122,15 @@ struct SettingSwiftUIView: View {
                     
               
                     Button(action: {
-                        // itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=[APP-ID-HERE]&pageNumber=0&sortOrdering=2&mt=8
-//                        if let url = URL(string: "itms-apps://itunes.apple.com/app/id?action=write-review"),
-//
-//                           UIApplication.shared.canOpenURL(url){
-//
-//                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//
-//                        }
-                        requestReview()
+                        if let url = URL(string: "itms-apps://itunes.apple.com/app/6502540017?action=write-review"),
+
+                           UIApplication.shared.canOpenURL(url){
+
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+                        }
+                        // ios有时候无法吊起来
+//                       requestReview()
 
 
                     }) {

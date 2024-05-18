@@ -25,11 +25,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("app will terminate")
     }
     
-    static var orientationLock = UIInterfaceOrientationMask.portrait
+    // 强制竖屏
+//    static var orientationLock = UIInterfaceOrientationMask.portrait
 
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return AppDelegate.orientationLock
-    }
+//    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//        return AppDelegate.orientationLock
+//    }
 }
 
 

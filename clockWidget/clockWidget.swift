@@ -112,7 +112,7 @@ struct clockWidgetEntryView : View {
             case .systemMedium:
                 
                 Spacer().frame(height: 20)
-                Text(Date().getCurrentDayStart(true), style: .timer).font(Font.custom("Bebas Neue", size:110)).foregroundColor(.white)
+                Text(Date().getCurrentDayStart(true), style: .timer).font(Font.custom("Bebas Neue", size:100)).foregroundColor(.white)
                 HStack{
                     DateView(entry:entry).font(Font.custom("Bebas Neue", size:20))
                     WeekView(entry:entry).font(Font.custom("Bebas Neue", size:20))
@@ -123,7 +123,8 @@ struct clockWidgetEntryView : View {
                 
             case .systemSmall:
                 VStack{
-                    TimeView(entry:entry).font(Font.custom("Bebas Neue", size:70))
+//                    TimeView(entry:entry).font(Font.custom("Bebas Neue", size:60))
+                    Text(Date().getCurrentDayStart(true), style: .timer).font(Font.custom("Bebas Neue", size:44)).foregroundColor(.white)
                     DateView(entry:entry).font(Font.custom("Bebas Neue", size:20)).offset(x:2)
                     WeekView(entry:entry).font(Font.custom("Bebas Neue", size:20)).offset(x:2)
                 }

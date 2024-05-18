@@ -176,16 +176,21 @@ struct SevenSwiftUIView: View {
     @State private var currentTime: Date = Date.now
     @State private var foreSecondColor: Color = .red
     @State private var foreThirdColor: Color  = .gray
-
+    @State private var isLandscape = false
     var body: some View {
         VStack {
             AnalogClockView7(foregroundColor: $themeColor,foreSecondColor: $foreSecondColor,foreThirdColor:$foreThirdColor) { date in
                 currentTime = date
             }
+            .rotationEffect(.degrees(!isLandscape ? 0 : 90))
             .padding(30)
 //            Text(currentTime, style: .time)
 //                .font(.system(size: 52))
 //                .bold()
+
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//            isLandscape = UIDevice.current.orientation.isLandscape
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

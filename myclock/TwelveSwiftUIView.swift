@@ -327,12 +327,11 @@ struct TwelveSwiftUIView: View {
                 currentTime = date
               
             }
-
             .padding(30)
             if !isLandscape {
-            Text(currentTime, style: .time)
-                .font(.system(size: 52))
-                .bold()
+                Text(currentTime, style: .time)
+                    .font(.system(size: 52))
+                    .bold()
             }
             
             
@@ -423,11 +422,11 @@ struct TwelveSwiftUIView: View {
                             .padding()
                             .shadow(color: Color.black.opacity(0.3), radius: 3, x: 0, y: 2)
                     }
-                }  }}.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                }  }}
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
                     isLandscape = UIDevice.current.orientation.isLandscape
      
                 }
-            
             VStack{  
                 BuyButtonSwiftUIView()
             }.offset(y:-40)
@@ -438,6 +437,8 @@ struct TwelveSwiftUIView: View {
     }
   
 }
+
+
 
 #Preview {
     TwelveSwiftUIView()

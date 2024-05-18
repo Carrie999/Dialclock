@@ -38,7 +38,7 @@ struct ClockView: View {
                                 content:{
                                     Rectangle().frame(height:4).foregroundColor(themeManager.themeBackgroundColor)
                                 }
-                            )
+                            ) .rotationEffect(.degrees(!isLandscape ? 0 : 90))
                         
                         HStack(spacing: innerSpacing) {
                             flipViewAtIndex(2).padding(.leading,20)
@@ -47,7 +47,7 @@ struct ClockView: View {
                             content:{
                                 Rectangle().frame(height:4).foregroundColor(themeManager.themeBackgroundColor)
                             }
-                        )
+                        ).rotationEffect(.degrees(!isLandscape ? 0 : 90))
                         
                         HStack(spacing: innerSpacing) {
                             
@@ -57,7 +57,7 @@ struct ClockView: View {
                             content:{
                                 Rectangle().frame(height:4).foregroundColor(themeManager.themeBackgroundColor)
                             }
-                        )
+                        ).rotationEffect(.degrees(!isLandscape ? 0 : 90))
                      
                         
                     }
@@ -97,14 +97,14 @@ struct ClockView: View {
                         )
                         Spacer()
                         
-                    } .frame(width: geometry.size.width, height: geometry.size.height)
+                    }  .rotationEffect(.degrees(!isLandscape ? 0 : 90)).frame(width: geometry.size.width, height: geometry.size.height)
                 }
+            }.onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//                isLandscape = UIDevice.current.orientation.isLandscape
+                
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-            isLandscape = UIDevice.current.orientation.isLandscape
-            
-        }
+        
    
     }
     

@@ -43,7 +43,7 @@ struct ProSwiftUIView: View {
                     Image(systemName: "chevron.backward").font(.system(size: 24))
                 }.padding()
                 Spacer()
-                Text("高级版").font(.system(size: 22)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Text("高级版").font(.system(size: 18)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
              
                 Spacer()
                 Button(action: {
@@ -59,36 +59,36 @@ struct ProSwiftUIView: View {
             HStack{
                 Spacer().frame(width: 50)
                 
-                VStack (alignment: .leading,spacing: 40){
+                VStack (alignment: .leading,spacing: 28){
                     Group {
                         HStack{
                             
-                            Image(systemName: "goforward.5").font(.system(size: 24))
+                            Image(systemName: "goforward.5").font(.system(size: 20))
                             Text("永久移除广告")
                         }
                        
                         HStack{
-                            Image(systemName: "highlighter").font(.system(size: 24))
+                            Image(systemName: "highlighter").font(.system(size: 20))
                             Text("自定义颜色")
                         }
                         HStack{
-                            Image(systemName: "lock.open").font(.system(size: 24))
+                            Image(systemName: "lock.open").font(.system(size: 20))
                             Text("全部时钟主题样式")
                         }
                         HStack{
-                            Image(systemName: "fan").font(.system(size: 24))
+                            Image(systemName: "fan").font(.system(size: 20))
                             Text("解锁所有 App 图标 ")
                         }
                         HStack{
-                            Image(systemName: "aspectratio").font(.system(size: 24))
+                            Image(systemName: "aspectratio").font(.system(size: 20))
                             Text("解锁所有小组件")
                         }
                         HStack{
-                            Image(systemName: "lightbulb.2").font(.system(size: 24))
+                            Image(systemName: "lightbulb.2").font(.system(size: 20))
                             Text("未来所有的新功能")
                         }
                       
-                    }.font(.system(size: 22)).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    }.font(.system(size: 18)).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
 //                    Text("未来所有的新功能")
                   
                     
@@ -133,11 +133,11 @@ struct ProSwiftUIView: View {
                                    .padding(10).foregroundColor(hexToColor(hex:"192d32"))
                                
                            } else {
-                               Text("立即解锁").font(.system(size: 20))
+                               Text("立即解锁").font(.system(size: 18))
                            }
                            
                        }
-                       .frame(maxWidth: .infinity, minHeight: 60)
+                       .frame(maxWidth: .infinity, minHeight: 50)
                       
                        .foregroundColor(hexToColor(hex:"192d32"))
                        .background(hexToColor(hex:"d4be87"))
@@ -172,7 +172,7 @@ struct ProSwiftUIView: View {
                     }
 //                    self.presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("恢复购买").font(.system(size: 16)).opacity(0.6)
+//                    Text("恢复购买").font(.system(size: 14)).opacity(0.6)
                 }.padding()
              
 //                Button("Restore Purchases", action: {
@@ -181,8 +181,8 @@ struct ProSwiftUIView: View {
                
             }
             
-            .padding(.horizontal,60)
-            .padding(.top,20)
+            .padding(.horizontal,40)
+            .padding(.top,0)
             
             
             

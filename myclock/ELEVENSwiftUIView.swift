@@ -162,6 +162,7 @@ struct ELEVENSwiftUIView: View {
     @State private var changeRandomColor: Bool = false
     @State private var foreSecondColor: Color = .red
     @State private var foreThirdColor: Color  = .gray
+    @State private var isLandscape = false
     private var colors: [Color]
     
     init() {
@@ -177,8 +178,13 @@ struct ELEVENSwiftUIView: View {
                         themeColor = colors.randomElement() ?? themeColor
                     }
                 }
+                .rotationEffect(.degrees(!isLandscape ? 0 : 90))
                 .padding(30)
                 
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//                isLandscape = UIDevice.current.orientation.isLandscape
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.white)

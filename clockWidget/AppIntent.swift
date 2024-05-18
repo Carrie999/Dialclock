@@ -8,12 +8,22 @@
 import WidgetKit
 import AppIntents
 
+//@available(iOSApplicationExtension 17.0, *)
+//struct ConfigurationAppIntent: WidgetConfigurationIntent {
+//    static var title: LocalizedStringResource = "Quote"
+//    static var description = IntentDescription("less is more.")
+//
+//    // An example configurable parameter.
+//    @Parameter(title: "Quote", default: "less is more")
+//    var favoriteEmoji: String
+//}
+
 @available(iOSApplicationExtension 17.0, *)
 struct ConfigurationAppIntent: WidgetConfigurationIntent {
-    static var title: LocalizedStringResource = "Configuration"
-    static var description = IntentDescription("This is an example widget.")
+    static var title: LocalizedStringResource = "Quote"
+    static var description = IntentDescription("less is more.")
 
     // An example configurable parameter.
     @Parameter(title: "Quote", default: "less is more")
-    var favoriteEmoji: String
+    internal var favoriteEmoji: String
 }

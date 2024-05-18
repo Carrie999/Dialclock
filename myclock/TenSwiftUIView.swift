@@ -161,6 +161,7 @@ struct TenSwiftUIView: View {
     @State private var changeRandomColor: Bool = false
     @State private var foreSecondColor: Color = .red
     @State private var foreThirdColor: Color  = .gray
+    @State private var isLandscape = false
     private var colors: [Color]
     
     init() {
@@ -176,6 +177,11 @@ struct TenSwiftUIView: View {
                         themeColor = colors.randomElement() ?? themeColor
                     }
                 }
+                .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+//                    isLandscape = UIDevice.current.orientation.isLandscape
+
+                }
+                .rotationEffect(.degrees(!isLandscape ? 0 : 90))
                 .padding(30)
                 
             }

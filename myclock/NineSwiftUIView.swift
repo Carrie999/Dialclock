@@ -199,7 +199,7 @@ struct NineSwiftUIView: View {
     @State private var currentTime: Date = Date.now
     @State private var foreSecondColor: Color = .red
     @State private var foreThirdColor: Color  = .gray
-
+    @State private var isLandscape = false
 //    267de9
 //    f1eb4ehe
     
@@ -215,12 +215,17 @@ struct NineSwiftUIView: View {
                 AnalogClockView9(foregroundColor: $themeColor,foreSecondColor: $foreSecondColor,foreThirdColor:$foreThirdColor) { date in
                     currentTime = date
                 }
+                .rotationEffect(.degrees(!isLandscape ? 0 : 90))
                 .padding(30)
                 //            Text(currentTime, style: .time)
                 //                .font(.system(size: 52))
                 //                .fontWeight(.thin)
                 //                .foregroundColor(hexToColor(hex: "afafaf"))
                 
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                isLandscape = UIDevice.current.orientation.isLandscape
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(hexToColor(hex: "#d4d4d4"))
