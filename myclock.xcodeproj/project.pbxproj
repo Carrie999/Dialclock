@@ -54,6 +54,8 @@
 		76B86A062BD5F067006E1196 /* FlipTextViewHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B86A002BD5F067006E1196 /* FlipTextViewHalf.swift */; };
 		76B86A072BD5F067006E1196 /* FlipImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B869FE2BD5F067006E1196 /* FlipImageView.swift */; };
 		76B86A0B2BD5F4E6006E1196 /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76B86A092BD5F4E6006E1196 /* Arial Rounded Bold.ttf */; };
+		76DCDC4F2C5F62A200A00462 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 76DCDC4E2C5F62A200A00462 /* Localizable.xcstrings */; };
+		76DCDC512C5F62CA00A00462 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 76DCDC502C5F62CA00A00462 /* InfoPlist.xcstrings */; };
 		76F2760E2BEFA09D00F06748 /* 表盘时钟.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 76F2760D2BEFA09D00F06748 /* 表盘时钟.storekit */; };
 		76F276102BEFA27F00F06748 /* product.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 76F2760F2BEFA27F00F06748 /* product.storekit */; };
 		76F276122BEFA7C100F06748 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76F276112BEFA7C100F06748 /* PropertyList.plist */; };
@@ -139,6 +141,8 @@
 		76B86A022BD5F067006E1196 /* MacOSViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSViewModifiers.swift; sourceTree = "<group>"; };
 		76B86A092BD5F4E6006E1196 /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 		76B86A0E2BD60223006E1196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76DCDC4E2C5F62A200A00462 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		76DCDC502C5F62CA00A00462 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		76F2760D2BEFA09D00F06748 /* 表盘时钟.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "表盘时钟.storekit"; sourceTree = "<group>"; };
 		76F2760F2BEFA27F00F06748 /* product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = product.storekit; sourceTree = "<group>"; };
 		76F276112BEFA7C100F06748 /* PropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 		76B869DD2BD5EE49006E1196 /* myclock */ = {
 			isa = PBXGroup;
 			children = (
+				76DCDC4E2C5F62A200A00462 /* Localizable.xcstrings */,
+				76DCDC502C5F62CA00A00462 /* InfoPlist.xcstrings */,
 				768A6DEF2BD8060000BCE15E /* myclock.entitlements */,
 				76B86A0E2BD60223006E1196 /* Info.plist */,
 				76B869FE2BD5F067006E1196 /* FlipImageView.swift */,
@@ -336,6 +342,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
+				es,
 			);
 			mainGroup = 76B869D22BD5EE49006E1196;
 			productRefGroup = 76B869DC2BD5EE49006E1196 /* Products */;
@@ -369,7 +378,9 @@
 				76F276102BEFA27F00F06748 /* product.storekit in Resources */,
 				76A183CC2BF8B8510038F193 /* Launch Screen.storyboard in Resources */,
 				76F2760E2BEFA09D00F06748 /* 表盘时钟.storekit in Resources */,
+				76DCDC512C5F62CA00A00462 /* InfoPlist.xcstrings in Resources */,
 				76B869E52BD5EE4A006E1196 /* Assets.xcassets in Resources */,
+				76DCDC4F2C5F62A200A00462 /* Localizable.xcstrings in Resources */,
 				768A6D622BD6A98400BCE15E /* landmarkData.json in Resources */,
 				76B86A0B2BD5F4E6006E1196 /* Arial Rounded Bold.ttf in Resources */,
 				76B869F32BD5EE90006E1196 /* AppViews in Resources */,
@@ -648,7 +659,8 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -691,7 +703,8 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = saintgirl.com.myclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

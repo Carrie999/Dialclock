@@ -58,10 +58,10 @@ struct OneView: View {
                             }
                     )
                     
+                   
                     VStack {
                         Spacer()
                         if !isButtonHidden {
-                            Spacer()
                             Button(action: {
                                 
                             }) {
@@ -76,7 +76,7 @@ struct OneView: View {
                                         .padding()
                                 }
                                 
-                            }.padding()
+                            }.padding(.top, 20)
                             
                             
                         }

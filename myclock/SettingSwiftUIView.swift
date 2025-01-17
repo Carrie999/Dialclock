@@ -47,7 +47,7 @@ struct SettingSwiftUIView: View {
     func getAppShareText() -> String {
           // Customize the share text with your app's description
 //          return "Check out this amazing app! It's the best app ever about clock!"
-        return "推荐一款实用App，表盘时钟自定义额样式"
+        return "Check out this amazing app! It's the best app ever about clock!"
       }
     func getAppStoreLink() -> URL {
             // Replace "your_app_id" with your actual App Store ID
@@ -267,8 +267,11 @@ struct AppIconView: View {
     let imageNames2 = ["Minimalist Bright", "Low Profile Luxury", "Minimalist Dark Gray", "Minimalist Light Grey",
                        "RomanNumerals", "RomanNumerals-1", "Minimalist Black", "Memphis Default",
     ]
-    let imageNames3 = ["极简明亮", "低调的奢华", "极简深灰", "极简浅灰",
-                       "罗马数字", "罗马数字-1", "极简黑", "孟菲斯-默认",
+//    let imageNames3 = ["极简明亮", "低调的奢华", "极简深灰", "极简浅灰",
+//                       "罗马数字", "罗马数字-1", "极简黑", "孟菲斯-默认",
+//    ]
+    let imageNames3 = ["1", "2", "3", "4",
+                       "5", "6", "7", "8",
     ]
     // 添加你的图片名称
     
